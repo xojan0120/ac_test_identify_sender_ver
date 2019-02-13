@@ -1,0 +1,16 @@
+h1 Rooms#show#{@room.id}
+p Find me in app/views/rooms/show.html.slim
+
+form data-room-id="#{@room.id}"
+  label
+    | user
+    input type="text" id="user_id"
+  label
+    | input
+    input type="text" data-behavior="room_speaker"
+
+ul.messages
+  = render @messages
+
+coffee:
+  $(document).trigger("channels_room_create_subscriptions")
